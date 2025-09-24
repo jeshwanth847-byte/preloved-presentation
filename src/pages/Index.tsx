@@ -1,7 +1,11 @@
-import { TrendingUp, Users, Globe, DollarSign, ShoppingCart, Smartphone, Shield, ArrowRight, Sparkles, Zap, Target } from "lucide-react";
+import { TrendingUp, Users, Globe, DollarSign, ShoppingCart, Smartphone, Shield, ArrowRight, Sparkles, Zap, Target, Heart, Monitor, Shirt, Home, Book } from "lucide-react";
 import Footer from "@/components/Footer";
 import marketplaceHero from "@/assets/marketplace-hero.jpg";
 import growthBg from "@/assets/growth-bg.jpg";
+import electronicsCategory from "@/assets/electronics-category.jpg";
+import fashionCategory from "@/assets/fashion-category.jpg";
+import furnitureCategory from "@/assets/furniture-category.jpg";
+import hobbiesCategory from "@/assets/hobbies-category.jpg";
 
 const Index = () => {
   return (
@@ -21,14 +25,16 @@ const Index = () => {
         
         <div className="container mx-auto text-center relative z-10">
           <div className="animate-fade-in">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-glow">
-              Second-Hand
-              <br />
-              <span className="text-4xl md:text-6xl lg:text-7xl">Marketplace</span>
-            </h1>
+            <div className="flex items-center justify-center mb-6">
+              <Heart className="h-12 w-12 md:h-16 md:w-16 text-primary mr-4 animate-float" />
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-glow">
+                TWICE LOVED
+              </h1>
+              <Heart className="h-12 w-12 md:h-16 md:w-16 text-primary ml-4 animate-float" style={{animationDelay: '1s'}} />
+            </div>
             <p className="text-xl md:text-3xl text-muted-foreground mb-12 max-w-4xl mx-auto font-light">
-              Revolutionizing the way people buy and sell pre-owned goods with 
-              <span className="text-primary font-medium"> smart technology</span>
+              Where pre-loved items find their 
+              <span className="text-primary font-medium"> perfect second home</span>
             </p>
           </div>
           
@@ -134,6 +140,80 @@ const Index = () => {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Categories */}
+      <section className="py-32 px-4 bg-gradient-to-br from-background to-muted/20">
+        <div className="container mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              What Our Customers Love
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Discover amazing pre-loved items across all categories
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                title: "Electronics",
+                description: "Smartphones, laptops, cameras & more",
+                image: electronicsCategory,
+                icon: Monitor,
+                gradient: "from-blue-500 to-purple-600"
+              },
+              {
+                title: "Fashion",
+                description: "Designer clothes, shoes & accessories",
+                image: fashionCategory,
+                icon: Shirt,
+                gradient: "from-pink-500 to-purple-600"
+              },
+              {
+                title: "Furniture",
+                description: "Home decor, vintage finds & modern pieces",
+                image: furnitureCategory,
+                icon: Home,
+                gradient: "from-green-500 to-teal-600"
+              },
+              {
+                title: "Hobbies",
+                description: "Books, art supplies, instruments & more",
+                image: hobbiesCategory,
+                icon: Book,
+                gradient: "from-orange-500 to-red-600"
+              }
+            ].map((category, index) => (
+              <div 
+                key={index}
+                className="group bg-gradient-to-br from-card to-card/50 backdrop-blur-sm rounded-3xl border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 animate-scale-in hover:scale-105 overflow-hidden"
+                style={{animationDelay: `${index * 0.1}s`}}
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={category.image} 
+                    alt={category.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className={`absolute top-4 right-4 w-12 h-12 bg-gradient-to-r ${category.gradient} rounded-xl flex items-center justify-center shadow-lg group-hover:animate-float`}>
+                    <category.icon className="h-6 w-6 text-white" />
+                  </div>
+                </div>
+                
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+                    {category.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    {category.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
