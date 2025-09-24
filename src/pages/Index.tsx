@@ -1,4 +1,4 @@
-import { TrendingUp, Users, Globe, DollarSign, ShoppingCart, Smartphone, Shield, ArrowRight, Sparkles, Zap, Target, Heart, Monitor, Shirt, Home, Book } from "lucide-react";
+import { TrendingUp, Users, Globe, DollarSign, ShoppingCart, Smartphone, Shield, ArrowRight, Sparkles, Zap, Target, Heart, Monitor, Shirt, Home, Book, Car, Bike } from "lucide-react";
 import Footer from "@/components/Footer";
 import marketplaceHero from "@/assets/marketplace-hero.jpg";
 import growthBg from "@/assets/growth-bg.jpg";
@@ -6,6 +6,8 @@ import electronicsCategory from "@/assets/electronics-category.jpg";
 import fashionCategory from "@/assets/fashion-category.jpg";
 import furnitureCategory from "@/assets/furniture-category.jpg";
 import hobbiesCategory from "@/assets/hobbies-category.jpg";
+import carsCategory from "@/assets/cars-category.jpg";
+import bikesCategory from "@/assets/bikes-category.jpg";
 
 const Index = () => {
   return (
@@ -156,7 +158,7 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 title: "Electronics",
@@ -180,11 +182,25 @@ const Index = () => {
                 gradient: "from-green-500 to-teal-600"
               },
               {
+                title: "Cars",
+                description: "Vintage & modern vehicles, sedans, SUVs",
+                image: carsCategory,
+                icon: Car,
+                gradient: "from-red-500 to-orange-600"
+              },
+              {
+                title: "Bikes",
+                description: "Motorcycles, bicycles, scooters & more",
+                image: bikesCategory,
+                icon: Bike,
+                gradient: "from-indigo-500 to-blue-600"
+              },
+              {
                 title: "Hobbies",
                 description: "Books, art supplies, instruments & more",
                 image: hobbiesCategory,
                 icon: Book,
-                gradient: "from-orange-500 to-red-600"
+                gradient: "from-cyan-500 to-teal-600"
               }
             ].map((category, index) => (
               <div 
